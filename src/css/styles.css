@@ -13,8 +13,9 @@ body {
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
   width: 300px;
+  padding: 20px;
+  border: 2px solid #195799;
 }
 
 ul {
@@ -32,4 +33,29 @@ li {
   margin-bottom: 5px;
   font-size: 18px;
   color: whitesmoke;
+}
+
+input {
+  color: #130e0e;
+  background-color: whitesmoke;
+  border: 1px solid #683535;
+  padding: 5px;
+}
+
+button {
+  background-color: #195799;
+  color: #ffffff;
+  border: none;
+  padding: 6px 20px;
+  cursor: pointer;
+  margin: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover{
+  background-color: #104075;
+}
+
+button:active{
+  background-color: #0d306b;
 }
