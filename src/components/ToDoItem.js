@@ -1,8 +1,11 @@
 import '../css/styles.css';
-const ToDoItem = ({text}) =>{
+const ToDoItem = ({text, index}) =>{
 return(
 <div>
-<li>{text}</li>
+<li>
+    <span>{index}. </span>
+    {text}
+</li>
 </div>
 )
 }
