@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import '../css/styles.css';
 const ToDoGenerator = ({ addTodo }) => {
   const [inputValue, setInputValue] = useState('');
 

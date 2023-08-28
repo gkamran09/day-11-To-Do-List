@@ -1,6 +1,6 @@
 import React from 'react';
 import ToDoItem from './ToDoItem';
-
+import '../css/styles.css';
 const ToDoGroup = ({ items }) => {
   return (
     <div>

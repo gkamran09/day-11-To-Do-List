@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './css/styles.css';
 import ToDoGroup from './components/ToDoGroup';
 import ToDoGenerator from './components/ToDoGenerator';
 
