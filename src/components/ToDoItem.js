@@ -1,10 +1,11 @@
 const ToDoItem = () =>{
 return(
 <div>
-    <h1>ToDoItem</h1>
-    <span>1st To Do</span>
-    <br></br>
-    <span>2nd To Do</span>
+    <h1>To Do List</h1>
+    <ul>
+        <li>1st ToDo</li>
+        <li>2nd ToDo</li>
+    </ul>
 </div>
 )
 }
