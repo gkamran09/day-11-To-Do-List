@@ -1,15 +1,22 @@
+import React, { useState } from 'react';
 import './App.css';
 import ToDoGroup from './components/ToDoGroup';
-import ToDoItem from './components/ToDoItem';
+import ToDoGenerator from './components/ToDoGenerator';
 
 function App() {
-  const todoItems = ["1st ToDo", "2nd ToDo"];
+  const [todos, setTodos] = useState([]);
+
+  const addTodo = (todo) => {
+    setTodos([...todos, todo]);
+  };
 
   return (
     <div>
-      <ToDoGroup items={todoItems} />
+      <h1>To-Do List</h1>
+      <ToDoGroup items={todos} />
+      <ToDoGenerator addTodo={addTodo} />
     </div>
-  )
+  );
 }
 
 export default App;
