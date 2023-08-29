@@ -6,7 +6,7 @@ const ToDoGroup = ({ items }) => {
     <div>
       <ul>
         {items.map((item, index) => (
-          <ToDoItem key={index} text={item} index={index + 1} />
+          <ToDoItem key={item.id} text={item.text} index={index + 1} id={item.id} />
         ))}
       </ul>
     </div>

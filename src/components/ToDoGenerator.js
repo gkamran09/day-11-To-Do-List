@@ -17,7 +17,7 @@ const ToDoGenerator = ({ addTodo }) => {
   return (
     <div>
       <input type="text" value={inputValue} onChange={handleInputChange}/>
-      <button onClick={handleAddClick}>Add</button>
+      <button onClick={handleAddClick} placeholder='add a to do list here'>Add</button>
     </div>
   );
 };
