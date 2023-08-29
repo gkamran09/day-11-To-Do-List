@@ -15,7 +15,7 @@ const ToDoList = () => {
   return (
     <div className="container">
       <h1>To Do List</h1>
-      <ToDoGroup items={todos} />
+      <ToDoGroup />
       <ToDoGenerator addTodo={handleAddTodo} />
     </div>
   );
