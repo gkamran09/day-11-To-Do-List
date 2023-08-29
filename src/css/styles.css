@@ -24,7 +24,7 @@ ul {
 }
 
 h1 {
-  color: whitesmoke;
+  color: rgb(19, 16, 16);
   font-size: 24px;
   margin-bottom: 15px;
 }
@@ -32,7 +32,7 @@ h1 {
 li {
   margin-bottom: 5px;
   font-size: 18px;
-  color: whitesmoke;
+  color: rgb(7, 6, 6);
 }
 
 input {
@@ -44,7 +44,7 @@ input {
 
 button {
   background-color: #195799;
-  color: #ffffff;
+  color: #251c1c;
   border: none;
   padding: 6px 20px;
   cursor: pointer;
