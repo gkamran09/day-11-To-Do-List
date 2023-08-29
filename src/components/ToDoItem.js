@@ -1,25 +1,23 @@
-import { connect } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { removeTodo } from './toDoSlice';
-import '../css/styles.css';
-const ToDoItem = ({ text, index, id, removeTodo }) => {
 
-    const handleRemoveClick = () =>{
-        removeTodo(id);
-    }
+const ToDoItem = ({ text, index, id }) => {
+  const dispatch = useDispatch();
 
-    return (
-      <div>
-        <li>
-          <span>{index}. </span>
-          {text}
-          <button className='close-btn' onClick={handleRemoveClick}>X</button>
-        </li>
-      </div>
-    );
+  const handleRemoveClick = () => {
+    dispatch(removeTodo(id));
   };
 
-  const mapDispatchToProps = {
-    removeTodo,
-  };
+  return (
+    <div>
+      <li>
+        <span>{index}. </span>
+        {text}
+        <button onClick={handleRemoveClick}>Close</button>
+      </li>
+    </div>
+  );
+};
 
-export default connect(null, mapDispatchToProps)(ToDoItem);
+export default ToDoItem;

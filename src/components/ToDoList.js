@@ -1,26 +1,24 @@
 import React from 'react';
 import ToDoGroup from './ToDoGroup';
 import ToDoGenerator from './ToDoGenerator';
-import { connect } from 'react-redux';
-import { addTodo, toggleTodo } from './toDoSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTodo } from './toDoSlice';
 
-const ToDoList = ({ todos, addTodo, toggleTodo }) => {
+const ToDoList = () => {
+  const dispatch = useDispatch();
+  const todos = useSelector((state) => state.todos);
+
+  const handleAddTodo = (text) => {
+    dispatch(addTodo(text));
+  };
+
   return (
     <div className="container">
       <h1>To Do List</h1>
       <ToDoGroup items={todos} />
-      <ToDoGenerator addTodo={addTodo} toggleTodo={toggleTodo} />
+      <ToDoGenerator addTodo={handleAddTodo} />
     </div>
   );
 };
 
-const mapStateToProps = (state) => ({
-  todos: state.ToDoItem,
-});
-
-const mapDispatchToProps = {
-  addTodo,
-  toggleTodo,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(ToDoList);
+export default ToDoList;
