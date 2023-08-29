@@ -1,20 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { removeTodo } from './toDoSlice';
+import { removeTodo, toggleTodo } from './toDoSlice';
 
-const ToDoItem = ({ text, index, id }) => {
+const ToDoItem = ({ text, index, id, done }) => {
+  const [completed, setCompleted] = useState(done);
   const dispatch = useDispatch();
 
   const handleRemoveClick = () => {
     dispatch(removeTodo(id));
   };
 
+  const handleItemClick = () => {
+    setCompleted(!completed);
+    dispatch(toggleTodo(id));
+  };
+
   return (
     <div>
-      <li>
-      <div className="todoItemContainer">
+      <li className={`todoItem ${completed ? 'completed' : ''}`}>
+        <div className="todoItemContainer">
           <span>{index}. </span>
-          {text}
+          <span className="todoItemText" onClick={handleItemClick}>
+            {text}
+          </span>
           <button className="closeButton" onClick={handleRemoveClick}>X</button>
         </div>
       </li>

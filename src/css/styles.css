@@ -89,6 +89,26 @@ button:active {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  position: relative;
+}
+
+.todoItemText {
+  transition: text-decoration 0.3s, color 0.3s, transform 0.3s;
+}
+
+.todoItemContainer:hover .todoItemText {
+  text-decoration: underline; 
+  color: var(--primary-color); 
+  transform: translateY(-2px); 
+}
+
+.todoItemContainer:active .todoItemText {
+  transform: translateY(2px); 
+}
+
+.todoItem.completed {
+  text-decoration: line-through;
+  color: #888;
 }
 
 .closeButton {
