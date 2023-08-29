@@ -7,10 +7,14 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  background-image: url('https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700354074.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .container {
-  background-color: #fff; 
+  background-color: rgba(62, 62, 62, 0.9);
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 700px;
@@ -19,7 +23,7 @@ body {
 }
 
 :root {
-  --primary-color: #195799;
+  --primary-color: #1eaa96;
   --accent-color: #d9534f;
 }
 
@@ -31,13 +35,13 @@ ul {
 h1 {
   font-family: 'Montserrat', sans-serif;
   font-size: 28px;
-  color: #333;
+  color: whitesmoke;
 }
 
 li {
   margin-bottom: 8px;
   font-size: 18px;
-  color: #555;
+  color: whitesmoke;
   word-wrap: break-word;
   cursor: pointer; 
 }
@@ -66,6 +70,7 @@ button {
   cursor: pointer;
   margin: 10px;
   transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  width: 96%;
 }
 
 button:hover {
@@ -108,7 +113,7 @@ button:active {
 
 .todoItem.completed {
   text-decoration: line-through;
-  color: #888;
+  color: #5c5a5a;
 }
 
 .closeButton {
@@ -120,7 +125,9 @@ button:active {
   cursor: pointer;
   margin-left: 10px;
   transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  width: 8%;
 }
+
 
 .closeButton:hover {
   background-color: #c9302c;
