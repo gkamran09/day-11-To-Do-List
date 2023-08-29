@@ -12,9 +12,11 @@ const ToDoItem = ({ text, index, id }) => {
   return (
     <div>
       <li>
-        <span>{index}. </span>
-        {text}
-        <button onClick={handleRemoveClick}>Close</button>
+      <div className="todoItemContainer">
+          <span>{index}. </span>
+          {text}
+          <button className="closeButton" onClick={handleRemoveClick}>X</button>
+        </div>
       </li>
     </div>
   );
