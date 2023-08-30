@@ -8,10 +8,12 @@ export const useTodos = () =>{
         const response = await todoApi.getAllTodoItems();
     dispatch(resetToDoTask(response.data));
     }
-    const addTodo = async(text)=>{
-        await todoApi.createTodoItem({text});
+
+    const addTodo = async (text) => {
+        await todoApi.createTodoItem({ text, done: false });
         loadTodos();
     }
+
     const toggleTodo = async(id,task)=>{
         await todoApi.updateTodoTask(id,{done: !task.done});
         loadTodos();

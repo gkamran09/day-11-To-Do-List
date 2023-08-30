@@ -1,24 +1,19 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { addTodo } from './toDoSlice';
+import { useTodos } from '../hooks/useTodos';
 
 const ToDoGenerator = () => {
     const [itemInput, setItemInput] = useState("");
     const dispatch = useDispatch();
+    const { addTodo } = useTodos();
 
     const onItemChange = (event) => {
         setItemInput(event.target.value);
     };
 
-    const addItem = () => {
+    const addItem = async () => {
         if (isValidInput()) {
-            dispatch(
-                addTodo({
-                    id: Date.now().toString(),
-                    text: itemInput,
-                    done: false,
-                })
-            );
+            await addTodo(itemInput);
             setItemInput("");
         } else {
             alert("Please enter a text");
