@@ -11,3 +11,11 @@ export const getAllTodoItems = () => {
 export const updateTodoTask = (id,todoTask) => {
     return api.put(`/todos/${id}`,todoTask);
 }
+
+export const deleteTodoItem = (id) => {
+    return api.delete(`/todos/${id}`);
+}
+
+export const createTodoItem = (todoItem) => {
+    return api.post('/todos',todoItem);
+}

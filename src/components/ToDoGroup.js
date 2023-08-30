@@ -1,10 +1,10 @@
-import TodoItem from "./TodoItem";
+import ToDoItem from "./ToDoItem";
 
-const TodoGroup = (props) => {
+const ToDoGroup = (props) => {
     const todoItems = props.todoItems;
     return todoItems.map((todoItem) => {
         return (
-            <TodoItem
+            <ToDoItem
                 todoItem={todoItem}
                 key={todoItem.id}
                 isDone={props.isDone}
@@ -13,4 +13,4 @@ const TodoGroup = (props) => {
     });
 };
 
-export default TodoGroup;
+export default ToDoGroup;

@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
-import * as todoApi from "../../src/api/todoApi";
-import { deleteTodoItem, resetAllTodoItems } from "./todoListSlice";
+import * as todoApi from "../api/todoApi";
+import { removeTodo, resetToDoTask } from "./toDoSlice";
 
-const TodoItem = (props) => {
+const ToDoItem = (props) => {
     const dispatch = useDispatch();
 
     const toggleItem = async () => {
@@ -10,7 +10,7 @@ const TodoItem = (props) => {
             done: !props.todoItem.done,
         });
         const response = await todoApi.getAllTodoItems();
-        dispatch(resetAllTodoItems(response.data));
+        dispatch(resetToDoTask(response.data));
     };
 
     const deleteItem = () => {
@@ -18,7 +18,7 @@ const TodoItem = (props) => {
             "Are you sure you want to delete this item?"
         );
         if (isConfirmed) {
-            dispatch(deleteTodoItem(props.todoItem.id));
+            dispatch(removeTodo(props.todoItem.id));
         }
     };
 
@@ -45,4 +45,4 @@ const TodoItem = (props) => {
     );
 };
 
-export default TodoItem;
+export default ToDoItem;

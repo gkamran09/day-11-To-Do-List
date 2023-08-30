@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTodoItem } from "./todoListSlice";
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTodo } from './toDoSlice';
 
-const TodoGenerator = () => {
+const ToDoGenerator = () => {
     const [itemInput, setItemInput] = useState("");
     const dispatch = useDispatch();
 
@@ -13,7 +13,7 @@ const TodoGenerator = () => {
     const addItem = () => {
         if (isValidInput()) {
             dispatch(
-                addTodoItem({
+                addTodo({
                     id: Date.now().toString(),
                     text: itemInput,
                     done: false,
@@ -21,7 +21,7 @@ const TodoGenerator = () => {
             );
             setItemInput("");
         } else {
-            alert("Oops! It seems like your input is invalid. Please enter some text to continue.");
+            alert("Please enter a text");
         }
     };
 
@@ -46,4 +46,4 @@ const TodoGenerator = () => {
     );
 };
 
-export default TodoGenerator;
+export default ToDoGenerator;

@@ -8,8 +8,8 @@ const ToDoItemDetail = () => {
     return (
       <div className="todo-detail">
         <h1>Todo Item Detail</h1>
-        <div>{todos?.id}</div>
-        <div>{todos?.text}</div>
+        <div>{todoList?.id}</div>
+        <div>{todoList?.text}</div>
       </div>
     );
   }
