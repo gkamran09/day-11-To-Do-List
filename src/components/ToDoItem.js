@@ -1,9 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { removeTodo, toggleTodo } from './toDoSlice';
+import { useNavigate } from 'react-router-dom';
 
 const ToDoItem = ({ text, index, id, done }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleRemoveClick = () => {
     const confirmed = window.confirm('Are you sure you want to delete this item?');
@@ -14,7 +16,7 @@ const ToDoItem = ({ text, index, id, done }) => {
 
   const handleItemClick = () => {
     if (done) {
-      console.log("go to the detail page");
+      navigate(`/done/${id}`);
     } else {
       dispatch(toggleTodo(id));
     }

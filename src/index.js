@@ -8,11 +8,14 @@ import { Provider } from 'react-redux';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import HelpPage from './pages/HelpPage';
 import ToDoList from './components/ToDoList';
+import ToDoItemDetail from './components/ToDoItemDetail';
+import ErrorPage from './pages/ErrorPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([{
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
     children: [
         {
             index: true, 
@@ -21,6 +24,10 @@ const router = createBrowserRouter([{
         {
             path: "/done",
             element: <ToDoList isDone={true}/>
+        },
+        {
+            path: "/done/:id",
+            element: <ToDoItemDetail />
         },
         {
             path: "/help",
