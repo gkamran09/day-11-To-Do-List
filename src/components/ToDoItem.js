@@ -8,7 +8,7 @@ const ToDoItem = (props) => {
   const dispatch = useDispatch();
   const { toggleTodo, deleteTodo, updateTodo } = useTodos();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [inputValue, setInputValue] = useState(props.todoItem.text); // Initialize with todo item's text
+  const [inputValue, setInputValue] = useState(props.todoItem.text);
 
   const handleToggle = () => {
     toggleTodo(props.todoItem.id, props.todoItem);
@@ -30,14 +30,14 @@ const ToDoItem = (props) => {
   const handleUpdate = async () => {
     const updatedItem = {
       ...props.todoItem,
-      text: inputValue, // Use the updated input value
+      text: inputValue,
     };
 
     try {
       await updateTodo(props.todoItem.id, updatedItem);
       setIsModalOpen(false);
     } catch (error) {
-      // Handle error if necessary
+ 
       console.error('Error updating todo item:', error);
     }
   };
