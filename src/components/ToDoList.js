@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ToDoGroup from './ToDoGroup';
 import ToDoGenerator from './ToDoGenerator';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux'; 
 import { useTodos } from '../hooks/useTodos';
 
 const ToDoList = (props) => {
-    const dispatch = useDispatch();
+    const dispatch = useDispatch(); 
     const { loadTodos } = useTodos();
 
     const todoItems = useSelector((state) => state.todoItem.todoList);

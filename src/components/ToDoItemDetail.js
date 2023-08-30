@@ -6,12 +6,11 @@ const ToDoItemDetail = () => {
     const todoList = useSelector((state) => state.todos.find(todo => todo.id === parseInt(id)));
 
     return (
-      <div className="todo-detail">
-        <h1>Todo Item Detail</h1>
-        <div>{todoList?.id}</div>
-        <div>{todoList?.text}</div>
-      </div>
+        <div className="todo-detail">
+            <h1>Todo Item Detail</h1>
+            <div>{todoList?.id}</div>
+            <div>{todoList?.text}</div>
+        </div>
     );
-  }
-  
-  export default ToDoItemDetail;
+}
+export default ToDoItemDetail;
