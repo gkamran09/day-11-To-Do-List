@@ -1,19 +1,17 @@
 import { useNavigate } from "react-router-dom";
-
+import "../css/ToDoList.css";
 const DoneItem = (props) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  console.log(props);
+  const onClickTodoItem = () => {
+    navigate("/done/" + props.item.key);
+  };
 
-    const onClickTodoItem = () => {
-        navigate("/done/" + props.todoItem.id);
-    };
-
-    return (
-        <>
-            <div className="todo-item">
-                <span onClick={onClickTodoItem}>{props.todoItem.text}</span>
-            </div>
-        </>
-    );
+  return (
+    <div className="todo-item">
+      <span onClick={onClickTodoItem}>{props.item.text}</span>
+    </div>
+  );
 };
 
 export default DoneItem;

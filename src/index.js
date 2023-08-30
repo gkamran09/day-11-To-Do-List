@@ -10,6 +10,7 @@ import HelpPage from './pages/HelpPage';
 import ToDoList from './components/ToDoList';
 import ToDoItemDetail from './components/ToDoItemDetail';
 import ErrorPage from './pages/ErrorPage';
+import DoneList from './components/DoneList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([{
@@ -23,7 +24,7 @@ const router = createBrowserRouter([{
         },
         {
             path: "/done",
-            element: <ToDoList isDone={true}/>
+            element: <DoneList />
         },
         {
             path: "/done/:id",

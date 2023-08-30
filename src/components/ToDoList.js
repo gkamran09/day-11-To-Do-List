@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 import { List } from 'antd';
 import { useTodos } from '../hooks/useTodos';
 import ToDoGenerator from './ToDoGenerator';
-import ToDoItem from './ToDoItem'; // Make sure to import the ToDoItem component
+import ToDoItem from './ToDoItem';
 import '../css/ToDoList.css';
 
-const ToDoList = (props) => {
+const ToDoList = () => {
   const { loadTodos } = useTodos();
   const todoItems = useSelector((state) => state.todoItem.todoList);
 
