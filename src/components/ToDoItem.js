@@ -6,7 +6,10 @@ const ToDoItem = ({ text, index, id, done }) => {
   const dispatch = useDispatch();
 
   const handleRemoveClick = () => {
-    dispatch(removeTodo(id));
+    const confirmed = window.confirm('Are you sure you want to delete this item?');
+    if (confirmed) {
+      dispatch(removeTodo(id));
+    }
   };
 
   const handleItemClick = () => {

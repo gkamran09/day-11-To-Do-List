@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { addTodo } from './toDoSlice';
 
-const ToDoGenerator = ({ addTodo }) => {
+const ToDoGenerator = () => {
   const [inputValue, setInputValue] = useState('');
+  const dispatch = useDispatch();
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -9,17 +12,23 @@ const ToDoGenerator = ({ addTodo }) => {
 
   const handleAddClick = () => {
     if (inputValue.trim() !== '') {
-      addTodo(inputValue);
+      dispatch(addTodo(inputValue));
       setInputValue('');
     }
   };
 
   return (
     <div>
-      <input type="text" value={inputValue} onChange={handleInputChange} placeholder='Add a to do list item here'/>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleInputChange}
+        placeholder="Add a to do list item here"
+      />
       <button onClick={handleAddClick}>Add</button>
     </div>
   );
 };
+
 
 export default ToDoGenerator;
