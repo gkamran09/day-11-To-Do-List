@@ -8,8 +8,14 @@ const ToDoGroup = () => {
   return (
     <div>
       <ul>
-        {todos.map((item, index) => (
-          <ToDoItem key={item.id} {...item} index={index + 1} />
+      {todos.map((item, index) => (
+          <ToDoItem
+            key={item.id}
+            text={item.text}
+            id={item.id}
+            done={item.done}
+            index={index + 1}
+          />
         ))}
       </ul>
     </div>
