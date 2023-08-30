@@ -7,10 +7,6 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-image: url('https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700354074.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .container {
@@ -35,7 +31,7 @@ ul {
 h1 {
   font-family: 'Montserrat', sans-serif;
   font-size: 28px;
-  color: whitesmoke;
+  color: black;
 }
 
 li {
@@ -43,11 +39,11 @@ li {
   font-size: 18px;
   color: whitesmoke;
   word-wrap: break-word;
-  cursor: pointer; 
+  cursor: pointer;
 }
 
 li:hover {
-  color: var(--primary-color); 
+  color: var(--primary-color);
   text-decoration: underline;
 }
 
@@ -102,18 +98,18 @@ button:active {
 }
 
 .todoItemContainer:hover .todoItemText {
-  text-decoration: underline; 
-  color: var(--primary-color); 
-  transform: translateY(-2px); 
+  text-decoration: underline;
+  color: var(--primary-color);
+  transform: translateY(-2px);
 }
 
 .todoItemContainer:active .todoItemText {
-  transform: translateY(2px); 
+  transform: translateY(2px);
 }
 
 .todoItem.completed {
   text-decoration: line-through;
-  color: #5c5a5a;
+  color: #080808;
 }
 
 .closeButton {
@@ -125,9 +121,8 @@ button:active {
   cursor: pointer;
   margin-left: 10px;
   transition: background-color 0.3s, color 0.3s, transform 0.3s;
-  width: 8%;
+  width: 30px; /* Adjust the width to your preference */
 }
-
 
 .closeButton:hover {
   background-color: #c9302c;
@@ -137,4 +132,32 @@ button:active {
 .closeButton:active {
   background-color: #ac2925;
   transform: scale(0.95);
+}
+
+.nav-bar {
+  background-color: #333;
+  color: white;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-list li {
+  margin: 0 10px; 
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-list a:hover {
+  text-decoration: underline;
 }

@@ -13,7 +13,11 @@ const ToDoItem = ({ text, index, id, done }) => {
   };
 
   const handleItemClick = () => {
-    dispatch(toggleTodo(id));
+    if (done) {
+      console.log("go to the detail page");
+    } else {
+      dispatch(toggleTodo(id));
+    }
   };
 
   return (
