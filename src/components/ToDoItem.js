@@ -1,51 +1,45 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import * as todoApi from "../api/todoApi";
-import { resetToDoTask } from "./toDoSlice";
-import { useTodos } from "../hooks/useTodos";
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { List, Checkbox, Button, Popconfirm } from 'antd';
+import { DeleteOutlined } from '@ant-design/icons';
+import { useTodos } from '../hooks/useTodos';
 
 const ToDoItem = (props) => {
-    const dispatch = useDispatch();
-    const { deleteTodo } = useTodos();
+  const dispatch = useDispatch();
+  const { toggleTodo, deleteTodo } = useTodos();
 
-    const toggleItem = async () => {
-        await todoApi.updateTodoTask(props.todoItem.id, {
-            done: !props.todoItem.done,
-        });
-        const response = await todoApi.getAllTodoItems();
-        dispatch(resetToDoTask(response.data));
-    };
+  const handleToggle =  () => {
+     toggleTodo(props.todoItem.id, props.todoItem);
+  };
 
-    const deleteItem = async () => {
-        const isConfirmed = window.confirm(
-            "Are you sure you want to delete this item?"
-        );
-        if (isConfirmed) {
-            await deleteTodo(props.todoItem.id);
-        }
-    };
-
-    return (
-        <>
-            <div className="todo-item">
-                <span
-                    className={
-                        props.isDone ? "" : props.todoItem.done ? "done" : ""
-                    }
-                    onClick={toggleItem}
-                >
-                    {props.todoItem.text}
-                </span>
-                {props.isDone ? (
-                    ""
-                ) : (
-                    <button className="closeButton" onClick={deleteItem}>
-                        x
-                    </button>
-                )}
-            </div>
-        </>
+  const handleDelete =  () => {
+    const isConfirmed = window.confirm(
+      'Are you sure you want to delete this item?'
     );
+    if (isConfirmed) {
+      deleteTodo(props.todoItem.id);
+    }
+  };
+
+  return (
+    <List.Item
+      actions={[
+        <Checkbox checked={props.todoItem.done} onChange={handleToggle}>
+          Done
+        </Checkbox>,
+        <Popconfirm
+          title="Are you sure you want to delete this item?"
+          onConfirm={handleDelete}
+        >
+          <Button type="danger" icon={<DeleteOutlined />} />
+        </Popconfirm>,
+      ]}
+    >
+      <span className={props.todoItem.done ? 'done' : ''}>
+        {props.todoItem.text}
+      </span>
+    </List.Item>
+  );
 };
 
 export default ToDoItem;

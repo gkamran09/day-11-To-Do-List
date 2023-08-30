@@ -1,0 +1,115 @@
+
+.container {
+    background-color: #f0f0f0;
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .todo-list {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  .todo-item.completed {
+    background-color: #e0e0e0;
+    text-decoration: line-through;
+    color: #666;
+  }
+  
+  .todo-item:last-child {
+    border-bottom: none;
+  }
+  
+  .ant-checkbox-wrapper {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+  }
+  
+  .ant-btn-text {
+    font-size: 14px;
+  }
+  
+  .delete-button {
+    color: #d9534f;
+  }
+  
+  .delete-button:hover {
+    color: #c9302c;
+  }
+  
+  .add-button {
+    background-color: #1eaa96;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    margin-top: 10px;
+    align-self: flex-end;
+  }
+  
+  .add-button:hover {
+    background-color: #128e7a;
+    transform: scale(1.05);
+  }
+  
+  .add-button:active {
+    background-color: #107264;
+    transform: scale(0.95);
+  }
+
+.ant-modal-content {
+    border-radius: 8px;
+  }
+  
+  .ant-modal-header {
+    background-color: #1eaa96;
+    color: #fff;
+    border-radius: 8px 8px 0 0;
+    padding: 12px 24px;
+  }
+  
+  .ant-modal-title {
+    font-size: 18px;
+  }
+  
+  .ant-modal-body {
+    padding: 20px;
+    font-size: 16px;
+  }
+  
+  .ant-modal-footer {
+    border-top: none;
+    text-align: center;
+  }
+  
+  .ant-btn-primary {
+    background-color: #1eaa96;
+    border-color: #1eaa96;
+  }
+  
+  .ant-btn-primary:hover {
+    background-color: #128e7a;
+    border-color: #128e7a;
+  }
+  
