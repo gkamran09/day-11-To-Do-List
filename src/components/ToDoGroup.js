@@ -1,26 +1,16 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import ToDoItem from './ToDoItem';
+import TodoItem from "./TodoItem";
 
-const ToDoGroup = (props) => {
-  const todos = useSelector((state) => state.todos);
-
-  const filteredTodos = props.isDone
-    ? todos.filter((task) => task.done)
-    : todos;
-
-  return (
-    <div>
-      <ul>
-        {filteredTodos.map((item) => (
-          <ToDoItem
-            item ={item}
-            isDone = {props.isDone}
-          />
-        ))}
-      </ul>
-    </div>
-  );
+const TodoGroup = (props) => {
+    const todoItems = props.todoItems;
+    return todoItems.map((todoItem) => {
+        return (
+            <TodoItem
+                todoItem={todoItem}
+                key={todoItem.id}
+                isDone={props.isDone}
+            />
+        );
+    });
 };
 
-export default ToDoGroup;
+export default TodoGroup;

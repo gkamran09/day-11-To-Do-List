@@ -11,7 +11,6 @@ const ToDoList = (props) => {
   const dispatch = useDispatch();
   const {loadTodos} = useTodos();
   useEffect(() => {loadTodos();}, []);
-
   return (
     <div className="container">
       <h1>To Do List</h1>

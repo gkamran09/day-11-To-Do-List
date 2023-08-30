@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 
 const ToDoItemDetail = () => {
     const { id } = useParams();
-    const todos = useSelector((state) => state.todos.find(todo => todo.id === parseInt(id)));
+    const todoList = useSelector((state) => state.todos.find(todo => todo.id === parseInt(id)));
 
     return (
       <div className="todo-detail">
