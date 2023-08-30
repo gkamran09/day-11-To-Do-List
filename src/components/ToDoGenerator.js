@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { addTodo } from './toDoSlice';
-
+import { useTodos } from '../hooks/useTodos';
 const ToDoGenerator = () => {
   const [inputValue, setInputValue] = useState('');
   const dispatch = useDispatch();

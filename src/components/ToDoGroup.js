@@ -12,13 +12,10 @@ const ToDoGroup = (props) => {
   return (
     <div>
       <ul>
-        {filteredTodos.map((item, index) => (
+        {filteredTodos.map((item) => (
           <ToDoItem
-            key={item.id}
-            text={item.text}
-            id={item.id}
-            done={item.done}
-            index={index + 1}
+            item ={item}
+            isDone = {props.isDone}
           />
         ))}
       </ul>
