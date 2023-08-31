@@ -1,14 +1,11 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { List, Checkbox, Button, Popconfirm, Modal, Input } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { useTodos } from '../hooks/useTodos';
 
 const ToDoItem = (props) => {
-  const dispatch = useDispatch();
   const { toggleTodo, deleteTodo, updateTodo } = useTodos();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [inputValue, setInputValue] = useState(props.todoItem.text);
 
   const handleToggle = () => {
     toggleTodo(props.todoItem.id, props.todoItem);
@@ -22,24 +19,15 @@ const ToDoItem = (props) => {
       deleteTodo(props.todoItem.id);
     }
   };
-  
+
   const showModal = () => {
     setIsModalOpen(true);
   };
 
-  const handleUpdate = async () => {
-    const updatedItem = {
-      ...props.todoItem,
-      text: inputValue,
-    };
-
-    try {
-      await updateTodo(props.todoItem.id, updatedItem);
-      setIsModalOpen(false);
-    } catch (error) {
- 
-      console.error('Error updating todo item:', error);
-    }
+  const handleUpdate = () => {
+    const update = updateTodo(props.todoItem.id, props.todoItem);
+    console.log(update);
+    setIsModalOpen(false);
   };
 
   const handleCancel = () => {
@@ -48,6 +36,7 @@ const ToDoItem = (props) => {
 
   return (
     <List.Item
+      className={props.todoItem.done ? 'todo-item done' : 'todo-item'}
       actions={[
         <Checkbox checked={props.todoItem.done} onChange={handleToggle}>
           Done
@@ -61,7 +50,7 @@ const ToDoItem = (props) => {
         <Button type="primary" onClick={showModal} icon={<EditOutlined />} />,
       ]}
     >
-      <span className={props.todoItem.done ? 'done' : ''}>
+      <span className={props.todoItem.done ? 'text-done' : ''}>
         {props.todoItem.text}
       </span>
       <Modal
@@ -70,7 +59,7 @@ const ToDoItem = (props) => {
         onOk={handleUpdate}
         onCancel={handleCancel}
       >
-        <Input value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+        <Input defaultValue={props.todoItem.text} />
       </Modal>
     </List.Item>
   );
